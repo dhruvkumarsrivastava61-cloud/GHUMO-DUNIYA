@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ghumo Duniya | Travel Made Easy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --primary:#00c3ff;
+  --dark:#071023;
+  --muted:#9aa4b2;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter,sans-serif;
+  background:var(--dark);
+  color:#fff;
+  scroll-behavior:smooth;
+}
+
+a{text-decoration:none;color:var(--primary)}
+
+a[href$=".html"]{ color:#ffd700 !important; }
+
+a[href$=".html"]:hover{ color:#ffffff !important; }
+
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(8px);
+  z-index:100;
+}
+
+nav{
+  max-width:1100px;
+  margin:auto;
+  padding:12px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.brand{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.logo{
+  width:60px;
+  height:60px;
+  border-radius:10px;
+  object-fit:contain;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.nav-links a{
+  font-weight:600;
+  white-space:nowrap;
+}
+
+.nav-links a:last-child{
+  background:var(--primary);
+  color:#001227;
+  padding:6px 12px;
+  border-radius:8px;
+}
+
+.menu-toggle{
+  display:none;
+  background:none;
+  border:none;
+  color:var(--primary);
+  font-size:24px;
+  cursor:pointer;
+  flex-direction:column;
+  gap:5px;
+}
+
+.menu-toggle span{
+  display:block;
+  width:25px;
+  height:3px;
+  background:var(--primary);
+  border-radius:2px;
+  transition:all 0.3s ease;
+}
+
+.menu-toggle.active span:nth-child(1){
+  transform:rotate(45deg) translate(8px, 8px);
+}
+
+.menu-toggle.active span:nth-child(2){
+  opacity:0;
+}
+
+.menu-toggle.active span:nth-child(3){
+  transform:rotate(-45deg) translate(8px, -8px);
+}
+
+/* sections */
+section{
+  min-height:100vh;
+  padding:120px 20px 60px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.hero{
+  background:linear-gradient(135deg, rgba(0,195,255,0.1) 0%, rgba(255,107,107,0.05) 100%), url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") center/cover;
+  position:relative;
+}
+
+.hero::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,0.35);
+  z-index:1;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+}
+
+    .image-marquee{
+      max-width:1100px;
+      margin:90px auto 40px;
+      overflow:hidden;
+      border-radius:24px;
+      box-shadow:0 22px 50px rgba(0,0,0,0.35);
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .image-marquee .strip{
+      display:flex;
+      gap:16px;
+      padding:16px;
+      animation:marquee 7s linear infinite;
+    }
+
+    .image-marquee .slide{
+      min-width:320px;
+      height:200px;
+      flex-shrink:0;
+      border-radius:18px;
+      overflow:hidden;
+      position:relative;
+      background:#111;
+    }
+
+    .image-marquee .slide img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      transition:transform .45s ease;
+    }
+
+    .image-marquee .slide:hover img{
+      transform:scale(1.08);
+    }
+
+    .image-marquee .slide .label{
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      padding:12px 14px;
+      background:rgba(0,0,0,0.45);
+      color:#fff;
+      font-size:14px;
+      font-weight:600;
+      letter-spacing:0.02em;
+    }
+
+    @keyframes marquee{
+      0%{transform:translateX(0)}
+      100%{transform:translateX(-50%)}
+    }
+
+.hero p{color:#fff}
+
+.box{
+  background:rgba(255,255,255,0.08);
+  padding:20px;
+  border-radius:14px;
+}
+
+/* services */
+.services{
+  background:url("https://images.unsplash.com/photo-1503264116251-35a269479413") center/cover;
+  position:relative;
+}
+
+.services::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,0.5);
+  z-index:1;
+}
+
+.services > div{
+  position:relative;
+  z-index:2;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+  margin-top:20px;
+}
+
+.card{
+  background:rgba(255,255,255,0.07);
+  padding:18px;
+  border-radius:14px;
+  text-align:center;
+}
+
+.card h3{
+  margin:0 0 10px;
+  color:var(--primary);
+}
+
+.card p{
+  color:#fff;
+  font-size:14px;
+}
+
+.destinations{
+  background:url("https://images.unsplash.com/photo-1469474968028-56623f02e42e") center/cover;
+  position:relative;
+}
+
+.destinations::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,0.5);
+  z-index:1;
+}
+
+.destinations > div{
+  position:relative;
+  z-index:2;
+}
+
+.why-choose{
+  background:url("https://images.unsplash.com/photo-1527631746610-bca00a040d60") center/cover;
+  position:relative;
+}
+
+.why-choose::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,0.5);
+  z-index:1;
+}
+
+.why-choose > div{
+  position:relative;
+  z-index:2;
+}
+.attractions{
+  background:url("https://images.unsplash.com/photo-1524492412937-b28074a5d7da") center/cover;
+  position:relative;
+}
+
+.attractions::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,0.5);
+  z-index:1;
+}
+
+.attractions > div{
+  position:relative;
+  z-index:2;
+}
+.testimonials{
+  background:url("https://images.unsplash.com/photo-1515886657613-9f3515b0c78f") center/cover;
+  position:relative;
+}
+
+.testimonials::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,0.5);
+  z-index:1;
+}
+
+.testimonials > div{
+  position:relative;
+  z-index:2;
+}
+
+.experiences{
+  background:url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4") center/cover;
+  position:relative;
+}
+
+.experiences::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,0.5);
+  z-index:1;
+}
+
+.experiences > div{
+  position:relative;
+  z-index:2;
+}
+
+.pricing{
+  background:linear-gradient(135deg, rgba(0,195,255,0.1) 0%, rgba(255,107,107,0.1) 100%), url("https://images.unsplash.com/photo-1554224155-6726b3ff858f") center/cover;
+  position:relative;
+}
+
+.pricing::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,0.45);
+  z-index:1;
+}
+
+.pricing h2{
+  text-align:center;
+  font-size:clamp(28px,4vw,48px);
+  margin-bottom:50px;
+  background:linear-gradient(135deg, var(--primary), #ff6b6b);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  position:relative;
+  z-index:2;
+}
+
+.card-link:hover{
+  transform:translateY(-10px);
+}
+
+.featured-card:hover{
+  transform:translateY(-15px) scale(1.05);
+}
+
+.card-link .card{
+  cursor:pointer;
+  transition:all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border:2px solid rgba(0,195,255,0.3);
+  background:linear-gradient(135deg, rgba(0,195,255,0.08) 0%, rgba(255,107,107,0.05) 100%);
+  backdrop-filter:blur(10px);
+}
+
+.card-link:hover .card{
+  box-shadow:0 20px 60px rgba(0,195,255,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+  border-color:rgba(0,195,255,0.6);
+  background:linear-gradient(135deg, rgba(0,195,255,0.15) 0%, rgba(255,107,107,0.08) 100%);
+}
+
+.featured-card .card{
+  border:2px solid var(--primary);
+  position:relative;
+  transform:scale(1.04);
+  background:linear-gradient(135deg, rgba(0,195,255,0.15) 0%, rgba(255,107,107,0.08) 100%);
+}
+
+.featured-card:hover .card{
+  box-shadow:0 30px 80px rgba(0,195,255,0.5), inset 0 1px 0 rgba(255,255,255,0.15);
+  border-color:#fff;
+  background:linear-gradient(135deg, rgba(0,195,255,0.25) 0%, rgba(255,107,107,0.12) 100%);
+}
+
+.popular-badge{
+  display:inline-block;
+  background:linear-gradient(135deg, var(--primary), #00a8d8);
+  padding:6px 12px;
+  border-radius:20px;
+  font-weight:700;
+  font-size:12px;
+  margin-bottom:12px;
+  box-shadow:0 4px 15px rgba(0,195,255,0.3);
+  animation:pulse-badge 2s ease-in-out infinite;
+}
+
+@keyframes pulse-badge{
+  0%, 100%{transform:scale(1);}
+  50%{transform:scale(1.05);}
+}
+
+.card h3{
+  color:var(--primary);
+  font-size:20px;
+  margin:10px 0;
+  position:relative;
+  z-index:2;
+}
+
+.card p{
+  color:#e5e9f0;
+  font-size:14px;
+  line-height:1.6;
+  position:relative;
+  z-index:2;
+}
+
+.popular-badge{
+  position:absolute;
+  top:-10px;
+  right:-10px;
+  background:linear-gradient(135deg, #ff6b35, #f7931e);
+  color:#fff;
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+  box-shadow:0 4px 12px rgba(255,107,53,0.3);
+  z-index:2;
+}
+
+/* booking */
+.booking{
+  background:url("https://images.unsplash.com/photo-1506744038136-46273834b3fb") center/cover;
+  position:relative;
+}
+
+.booking::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,0.3);
+  z-index:1;
+}
+
+.booking > div{
+  position:relative;
+  z-index:2;
+}
+
+.booking-box{
+  background:rgba(0,0,0,0.65);
+  padding:24px;
+  border-radius:16px;
+  max-width:900px;
+  width:100%;
+  display:grid;
+  grid-template-columns:1fr 320px;
+  gap:20px;
+}
+
+input,select,textarea{
+  width:100%;
+  padding:10px;
+  margin:6px 0;
+  border:none;
+  border-radius:8px;
+}
+
+button{
+  background:var(--primary);
+  border:none;
+  padding:10px;
+  font-weight:700;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+/* footer */
+footer{
+  background:#020617;
+  padding:20px;
+  text-align:center;
+  color:var(--muted);
+}
+
+/* mobile */
+@media(max-width:900px){
+  .hero-content,.booking-box{
+    grid-template-columns:1fr;
+  }
+  footer div{
+    grid-template-columns:1fr;
+  }
+  
+  .nav-links{
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  
+  .nav-links a{
+    font-size:14px;
+  }
+  
+  nav{
+    padding:12px 15px;
+  }
+
+  section{
+    padding:80px 15px 40px;
+  }
+
+  .image-marquee .slide{
+    min-width:280px;
+    height:160px;
+  }
+
+  .cards{
+    gap:15px;
+  }
+
+  h2{
+    font-size:clamp(24px,6vw,40px);
+  }
+
+  .card h3{
+    font-size:18px;
+  }
+}
+
+@media(max-width:600px){
+  .menu-toggle{
+    display:flex;
+  }
+
+  .nav-links{
+    gap:8px;
+    justify-content:center;
+    position:absolute;
+    top:70px;
+    left:0;
+    right:0;
+    background:rgba(0,0,0,0.95);
+    flex-direction:column;
+    padding:20px;
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.3s ease;
+    text-align:center;
+    z-index:99;
+  }
+
+  .nav-links.active{
+    max-height:500px;
+  }
+  
+  .nav-links a{
+    font-size:12px;
+    padding:10px 8px;
+    display:block;
+  }
+  
+  .nav-links a:last-child{
+    padding:8px 16px;
+  }
+  
+  .brand{
+    font-size:14px;
+  }
+
+  .logo{
+    width:50px;
+    height:50px;
+  }
+
+  section{
+    padding:60px 12px 30px;
+  }
+
+  .hero-content{
+    text-align:center;
+  }
+
+  .hero-content h1{
+    font-size:clamp(24px,8vw,36px);
+  }
+
+  .hero-content p{
+    font-size:14px;
+    line-height:1.5;
+  }
+
+  .image-marquee{
+    margin:60px auto 30px;
+    border-radius:16px;
+  }
+
+  .image-marquee .slide{
+    min-width:240px;
+    height:140px;
+    border-radius:12px;
+  }
+
+  .image-marquee .strip{
+    padding:12px;
+    gap:12px;
+  }
+
+  .cards{
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+
+  .card{
+    padding:16px;
+    border-radius:12px;
+  }
+
+  .card h3{
+    font-size:16px;
+  }
+
+  .card p{
+    font-size:13px;
+  }
+
+  .box{
+    padding:16px;
+    border-radius:12px;
+    font-size:14px;
+  }
+
+  .booking-box{
+    padding:16px;
+    border-radius:12px;
+    grid-template-columns:1fr;
+  }
+
+  input,select,textarea{
+    padding:8px;
+    font-size:14px;
+  }
+
+  button{
+    padding:8px;
+    font-size:14px;
+  }
+
+  h2{
+    font-size:clamp(20px,7vw,32px);
+    margin-bottom:20px;
+  }
+
+  .brand strong{
+    font-size:14px;
+  }
+
+  footer{
+    padding:15px;
+  }
+
+  footer div{
+    gap:15px;
+  }
+
+  footer h3{
+    font-size:16px;
+  }
+
+  footer h4{
+    font-size:14px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+  <div class="brand">
+    <img src="ghumo duniya img.jpeg" alt="Ghumo Duniya Logo" class="logo">
+    <div>
+      <strong>Ghumo Duniya</strong><br>
+      <small style="color:var(--muted)">Tours & Travels</small>
+    </div>
+  </div>
+
+  <button class="menu-toggle" id="menuToggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="nav-links" id="navLinks">
+    <a href="#services">Services</a>
+    <a href="#destinations">Destinations</a>
+    <a href="#attractions">Attractions</a>
+    <a href="#experiences">Experiences</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#why-choose">Why Choose Us</a>
+    <a href="#booking">Book Now</a>
+    <a href="#contact">Contact</a>
+    <a href="#booking">Get Started</a>
+  </div>
+</nav>
+</header>
+
+
+
+<section class="hero">
+  <div class="hero-content">
+    <div>
+      <small style="color:var(--muted)">Premium travel planning since 2025</small>
+      <h1>Explore with <span style="color:var(--primary)">Ghumo Duniya</span></h1>
+      <p>Your gateway to extraordinary adventures. From Himalayan treks to beach getaways, we craft personalized experiences that create lifelong memories. Let us handle the details while you focus on the journey.</p>
+      <a href="#booking" style="display:inline-block;margin-top:20px;background:var(--primary);color:#001227;padding:10px 20px;border-radius:8px;font-weight:600;">Start Your Adventure</a>
+    </div>
+
+    <div class="box">
+      <strong>Talk to us</strong>
+      <p style="color:var(--muted)">📞 +91 9598940618</p>
+      <a href="https://www.instagram.com/_ghumo_duniya" target="_blank">Instagram</a>
+    </div>
+  </div>
+</section>
+
+<div class="image-marquee">
+  <div class="strip">
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1508098682722-e99e52d6ba6b?auto=format&fit=crop&w=1200&q=80" alt="Taj Mahal">
+     
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=1200&q=80" alt="Agra Fort">
+      
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80" alt="Fatehpur Sikri">
+      
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1520975911084-820e49d8a0f6?auto=format&fit=crop&w=1200&q=80" alt="Goa Beach">
+    
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1508098682722-e99e52d6ba6b?auto=format&fit=crop&w=1200&q=80" alt="Taj Mahal">
+     
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=1200&q=80" alt="Agra Fort">
+      
+    </div>
+  </div>
+</div>
+
+<section id="services" class="services">
+  <div style="max-width:1100px">
+    <h2>Our Services</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>✈️ Custom Trips</h3>
+        <p>Tailored itineraries designed around your preferences, budget, and interests. From solo adventures to family vacations, we create unforgettable journeys.</p>
+      </div>
+      <div class="card">
+        <h3>🧭 Local Guides</h3>
+        <p>Expert local guides who know every hidden gem and cultural secret. Get authentic experiences and insider knowledge for a deeper connection.</p>
+      </div>
+      <div class="card">
+        <h3>🏨 Comfort Stays</h3>
+        <p>Handpicked accommodations ranging from boutique hotels to luxury resorts. Comfort and convenience guaranteed for a restful stay.</p>
+      </div>
+      <div class="card">
+        <h3>👥 Group Tours</h3>
+        <p>Join like-minded travelers on curated group tours. Perfect for social exploration with expert leadership and shared adventures.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="destinations" class="destinations">
+  <div style="max-width:1100px">
+    <h2>Popular Destinations</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>🌄 Himalayas</h3>
+        <p>Experience breathtaking mountain views, spiritual retreats, and adventure sports. Visit Kedarnath, Badrinath, and Valley of Flowers. Perfect for trekking and meditation.</p>
+        <div style="margin-top:10px;font-weight:600;color:var(--primary);">
+          Starting from ₹25,000 per person<br>
+          <small style="color:#fff;font-weight:400;">Customizable based on duration & inclusions</small>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🏖️ Goa Beaches</h3>
+        <p>Relax on pristine beaches, enjoy vibrant nightlife, and explore Portuguese heritage. Don't miss Calangute, Anjuna, and the historic Fort Aguada.</p>
+        <div style="margin-top:10px;font-weight:600;color:var(--primary);">
+          Starting from ₹15,000 per person<br>
+          <small style="color:#fff;font-weight:400;">Customizable based on duration & inclusions</small>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🕌 Rajasthan</h3>
+        <p>Discover royal palaces, desert safaris, and rich cultural heritage. Explore Jaipur's Amber Fort, Udaipur's Lake Palace, and Jaisalmer's desert camps.</p>
+        <div style="margin-top:10px;font-weight:600;color:var(--primary);">
+          Starting from ₹20,000 per person<br>
+          <small style="color:#fff;font-weight:400;">Customizable based on duration & inclusions</small>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🌿 Kerala</h3>
+        <p>Cruise through backwaters, stay in houseboats, and rejuvenate with Ayurvedic treatments. Visit Alleppey, Munnar tea plantations, and Periyar Wildlife Sanctuary.</p>
+        <div style="margin-top:10px;font-weight:600;color:var(--primary);">
+          Starting from ₹18,000 per person<br>
+          <small style="color:#fff;font-weight:400;">Customizable based on duration & inclusions</small>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🏛️ Delhi & Agra</h3>
+        <p>Immerse in India's rich history and culture. See the Taj Mahal at sunrise, explore Red Fort, and wander through Chandni Chowk's bustling markets.</p>
+        <div style="margin-top:10px;font-weight:600;color:var(--primary);">
+          Starting from ₹12,000 per person<br>
+          <small style="color:#fff;font-weight:400;">Customizable based on duration & inclusions</small>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🏔️ Ladakh</h3>
+        <p>Discover the rugged beauty of high-altitude deserts. Visit Pangong Lake, Nubra Valley, and ancient monasteries. Ideal for adventure seekers.</p>
+        <div style="margin-top:10px;font-weight:600;color:var(--primary);">
+          Starting from ₹35,000 per person<br>
+          <small style="color:#fff;font-weight:400;">Customizable based on duration & inclusions</small>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🌅 Andaman Islands</h3>
+        <p>Snorkel in crystal-clear waters, relax on secluded beaches, and explore coral reefs. Visit Radhanagar Beach and the Cellular Jail for history.</p>
+        <div style="margin-top:10px;font-weight:600;color:var(--primary);">
+          Starting from ₹28,000 per person<br>
+          <small style="color:#fff;font-weight:400;">Customizable based on duration & inclusions</small>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🗻 Northeast India</h3>
+        <p>Experience tribal cultures, tea gardens, and natural beauty. Explore Meghalaya's living root bridges, Kaziranga's rhinos, and Arunachal's monasteries.</p>
+        <div style="margin-top:10px;font-weight:600;color:var(--primary);">
+          Starting from ₹22,000 per person<br>
+          <small style="color:#fff;font-weight:400;">Customizable based on duration & inclusions</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="attractions" class="attractions">
+  <div style="max-width:1100px">
+    <h2>Iconic Attractions & Experiences</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>🏰 Taj Mahal, Agra</h3>
+        <p>Witness the symbol of eternal love at sunrise. Marvel at the intricate marble work and learn about Mughal architecture.</p>
+        <div style="margin-top:10px;font-weight:600;color:var(--primary);">
+          <a href="agra.html" style="color:var(--primary);font-weight:700;">View Agra Itinerary</a><br>
+          ₹8,000 - ₹15,000 per person<br>
+          <small style="color:#fff;font-weight:400;">Includes guided tour & transport</small>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🏔️ Valley of Flowers, Uttarakhand</h3>
+        <p>A UNESCO World Heritage Site blooming with 500+ flower species. Perfect for nature lovers and photographers.</p>
+        <div style="margin-top:10px;font-weight:600;color:var(--primary);">
+          <a href="uttrakhand.html" style="color:var(--primary);font-weight:700;">View Uttarakhand Itinerary</a><br>
+          ₹12,000 - ₹20,000 per person<br>
+          <small style="color:#fff;font-weight:400;">Includes trekking & accommodation</small>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🏖️ Anjuna Beach, Goa</h3>
+        <p>Famous for its Wednesday flea market, hippie culture, and stunning sunsets. Experience Goa's vibrant beach life.</p>
+        <div style="margin-top:10px;font-weight:600;color:var(--primary);">
+          <a href="Goa.html" style="color:var(--primary);font-weight:700;">View Goa Itinerary</a><br>
+          ₹6,000 - ₹12,000 per person<br>
+          <small style="color:#fff;font-weight:400;">Includes beach activities & stay</small>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🏞️ Pangong Lake, Ladakh</h3>
+        <p>One of the highest brackish lakes in the world. Watch the color-changing waters and stargaze in the clear night sky.</p>
+        <div style="margin-top:10px;font-weight:600;color:var(--primary);">
+          <a href="Ladakh.html" style="color:var(--primary);font-weight:700;">View Ladakh Itinerary</a><br>
+          ₹15,000 - ₹25,000 per person<br>
+          <small style="color:#fff;font-weight:400;">Includes camping & local transport</small>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🕌 Mehrangarh Fort, Jodhpur</h3>
+        <p>Perched on a 400-foot hill, this fort offers panoramic views and houses a fascinating collection of palanquins and weapons.</p>
+        <div style="margin-top:10px;font-weight:600;color:var(--primary);">
+          <a href="jodhpur.html" style="color:var(--primary);font-weight:700;">View Rajasthan Itinerary</a><br>
+          ₹5,000 - ₹10,000 per person<br>
+          <small style="color:#fff;font-weight:400;">Includes fort entry & guide</small>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🌊 Backwater Cruise, Kerala</h3>
+        <p>Glide through palm-fringed canals in traditional houseboats. Experience village life and local cuisine along the way.</p>
+        <div style="margin-top:10px;font-weight:600;color:var(--primary);">
+          <a href="kerala.html" style="color:var(--primary);font-weight:700;">View Kerala Itinerary</a><br>
+          ₹8,000 - ₹15,000 per person<br>
+          <small style="color:#fff;font-weight:400;">Includes houseboat stay & meals</small>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🦏 Kaziranga National Park</h3>
+        <p>Home to the world's largest population of Indian one-horned rhinoceros. Spot tigers, elephants, and diverse bird species.</p>
+        <div style="margin-top:10px;font-weight:600;color:var(--primary);">
+          <a href="KNPark.html" style="color:var(--primary);font-weight:700;">View Kaziranga Itinerary</a><br>
+          ₹10,000 - ₹18,000 per person<br>
+          <small style="color:#fff;font-weight:400;">Includes safari & accommodation</small>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🏛️ Red Fort, Delhi</h3>
+        <p>A UNESCO site showcasing Mughal architecture. Visit during Republic Day for the spectacular flag hoisting ceremony.</p>
+        <div style="margin-top:10px;font-weight:600;color:var(--primary);">
+          <a href="delhi.html" style="color:var(--primary);font-weight:700;">View Delhi Itinerary</a><br>
+          ₹4,000 - ₹8,000 per person<br>
+          <small style="color:#fff;font-weight:400;">Includes monument entry & guide</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why-choose" class="why-choose">
+  <div style="max-width:1100px">
+    <h2>Why Choose Ghumo Duniya?</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>🎯 Personalized Service</h3>
+        <p>Every trip is customized to your needs, ensuring a perfect match for your travel style and preferences.</p>
+      </div>
+      <div class="card">
+        <h3>💰 Best Value</h3>
+        <p>Competitive pricing with no hidden costs. We negotiate the best deals for flights, hotels, and activities.</p>
+      </div>
+      <div class="card">
+        <h3>🛡️ 24/7 Support</h3>
+        <p>Round-the-clock assistance during your trip. We're always here to help, no matter where you are.</p>
+      </div>
+      <div class="card">
+        <h3>⭐ 5-Star Reviews</h3>
+        <p>Join thousands of satisfied travelers. Our average rating speaks for our commitment to excellence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="pricing">
+  <div style="max-width:1100px">
+    <h2>Travel Packages & Pricing</h2>
+    <div class="cards">
+      <a href="custom-package.html" class="card-link featured-card">
+        <div class="card">
+          <div class="popular-badge">🏆 Most Popular</div>
+          <h3>🏖️ Budget Travel</h3>
+          <p>Perfect for backpackers and minimalists. Includes basic accommodations, local transport, and essential activities.</p>
+          <div style="margin-top:15px;font-size:24px;font-weight:700;color:var(--primary);">
+            ₹12,000 - ₹18,000<br>
+            <small style="color:#ffffff;font-weight:400;font-size:14px;">per person</small>
+          </div>
+        </div>
+      </a>
+      <a href="standard-package.html" class="card-link">
+        <div class="card">
+          <h3>✨ Standard Package</h3>
+          <p>Comfortable mid-range travel with good hotels, guided tours, and a mix of activities for most travelers.</p>
+          <div style="margin-top:15px;font-size:24px;font-weight:700;color:var(--primary);">
+            ₹18,000 - ₹30,000<br>
+            <small style="color:#ffffff;font-weight:400;font-size:14px;">per person</small>
+          </div>
+        </div>
+      </a>
+      <a href="luxury-package.html" class="card-link">
+        <div class="card">
+          <h3>💎 Luxury Experience</h3>
+          <p>Premium travel with 5-star hotels, private guides, exclusive experiences, and personalized service.</p>
+          <div style="margin-top:15px;font-size:24px;font-weight:700;color:var(--primary);">
+            ₹35,000 - ₹60,000<br>
+            <small style="color:#ffffff;font-weight:400;font-size:14px;">per person</small>
+          </div>
+        </div>
+      </a>
+      <a href="custom-package.html" class="card-link">
+        <div class="card">
+          <h3>🎯 Custom Packages</h3>
+          <p>Tailored itineraries designed specifically for your needs, preferences, and special requirements.</p>
+          <div style="margin-top:15px;font-size:24px;font-weight:700;color:var(--primary);">
+            Price on Request<br>
+            <small style="color:#ffffff;font-weight:400;font-size:14px;">Contact for quote</small>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div style="text-align:center;margin-top:40px;padding:30px;background:linear-gradient(135deg, rgba(0,195,255,0.15) 0%, rgba(255,107,107,0.08) 100%);border:2px solid rgba(0,195,255,0.3);border-radius:20px;backdrop-filter:blur(10px);position:relative;z-index:2;">
+      <p style="color:#ffffff;font-size:16px;margin:0;line-height:1.8;">
+        <strong style="color:var(--primary);font-size:18px;">💡 All prices are per person and customizable.</strong><br>
+        <span style="color:#e5e9f0;">Final costs depend on group size, duration, season, and specific inclusions.</span><br>
+        <span style="color:var(--primary);font-weight:600;">Contact us for a personalized quote based on your requirements.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="booking" class="booking">
+  <div class="booking-box">
+    <div>
+      <h3 style="color:#fff">Plan Your Perfect Trip</h3>
+      <p style="color:#fff">Get a customized quote within 24 hours</p>
+      <div style="margin-top:10px;padding:10px;background:rgba(255,255,255,0.1);border-radius:8px;">
+        <small style="color:#fff;">
+          💰 <strong>Pricing starts from ₹12,000 per person</strong><br>
+          All prices are customizable based on your preferences, group size, duration, and inclusions.
+        </small>
+      </div>
+    </div>
+
+    <form onsubmit="sendMail(event)">
+      <input id="name" placeholder="Name" required>
+      <input id="email" type="email" placeholder="Email" required>
+      <input id="phone" placeholder="Phone" required>
+      <select id="trip">
+        <option>Select Trip Type</option>
+        <option>Weekend Getaway (₹12,000-18,000)</option>
+        <option>Adventure Trip (₹20,000-35,000)</option>
+        <option>Honeymoon Package (₹25,000-45,000)</option>
+        <option>Family Vacation (₹15,000-30,000)</option>
+        <option>Custom Trip (Price on Request)</option>
+      </select>
+      <textarea id="message" rows="4" placeholder="Message"></textarea>
+      <button type="submit">Request Quote</button>
+    </form>
+  </div>
+</section>
+
+<section id="testimonials" class="testimonials">
+  <div style="max-width:1100px">
+    <h2>What Our Travelers Say</h2>
+    <div class="cards">
+      <div class="card">
+        <p>"Ghumo Duniya made our honeymoon in Goa absolutely magical. Every detail was perfect!"</p>
+        <strong>- Priya & Rajesh, Newlyweds</strong>
+      </div>
+      <div class="card">
+        <p>"The Himalayan trek was life-changing. Professional guides and stunning views. Highly recommend!"</p>
+        <strong>- Amit Kumar, Adventure Enthusiast</strong>
+      </div>
+      <div class="card">
+        <p>"Best travel agency ever! They handled everything from visas to accommodations seamlessly."</p>
+        <strong>- Sarah Johnson, International Traveler</strong>
+      </div>
+      <div class="card">
+        <p>"Our family trip to Kerala was unforgettable. The houseboat stay and backwater cruise were incredible!"</p>
+        <strong>- Rajesh Family, Delhi</strong>
+      </div>
+      <div class="card">
+        <p>"As a solo traveler, I felt completely safe and well-cared for. Ghumo Duniya planned the perfect Rajasthan itinerary."</p>
+        <strong>- Meera Singh, Solo Traveler</strong>
+      </div>
+      <div class="card">
+        <p>"Outstanding service! They arranged our corporate team-building trip with precision and creativity."</p>
+        <strong>- TechCorp HR Team</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experiences" class="experiences">
+  <div style="max-width:1100px">
+    <h2>Unique Experiences</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>🏕️ Desert Camping in Rajasthan</h3>
+        <p>Sleep under the stars in luxury desert camps. Enjoy traditional Rajasthani folk music, dance, and authentic cuisine around a bonfire.</p>
+        <div style="margin-top:10px;font-weight:600;color:var(--primary);">
+          ₹7,000 - ₹12,000 per person<br>
+          <small style="color:#fff;font-weight:400;">Includes camping, meals & cultural shows</small>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🚣 River Rafting in Rishikesh</h3>
+        <p>Navigate thrilling rapids on the Ganges River. Experience adventure sports and yoga sessions in the spiritual capital of yoga.</p>
+        <div style="margin-top:10px;font-weight:600;color:var(--primary);">
+          ₹5,000 - ₹9,000 per person<br>
+          <small style="color:#fff;font-weight:400;">Includes rafting, safety gear & yoga</small>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🍛 Cooking Classes in Kerala</h3>
+        <p>Learn to prepare authentic South Indian cuisine. Visit spice plantations and understand the flavors of traditional Kerala cooking.</p>
+        <div style="margin-top:10px;font-weight:600;color:var(--primary);">
+          ₹4,000 - ₹8,000 per person<br>
+          <small style="color:#fff;font-weight:400;">Includes class, ingredients & plantation tour</small>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🎨 Art & Culture in Jaipur</h3>
+        <p>Explore the Pink City's art scene, visit block printing workshops, and learn about traditional handicrafts and jewelry making.</p>
+        <div style="margin-top:10px;font-weight:600;color:var(--primary);">
+          ₹3,000 - ₹6,000 per person<br>
+          <small style="color:#fff;font-weight:400;">Includes workshops & material costs</small>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🐘 Wildlife Safari in Jim Corbett</h3>
+        <p>Spot tigers, elephants, and diverse wildlife in India's oldest national park. Experience jungle safaris and nature walks.</p>
+        <div style="margin-top:10px;font-weight:600;color:var(--primary);">
+          ₹6,000 - ₹11,000 per person<br>
+          <small style="color:#fff;font-weight:400;">Includes safari permits & guide</small>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🧘 Meditation Retreats</h3>
+        <p>Join mindfulness sessions in the Himalayas or Kerala. Find inner peace through yoga, meditation, and spiritual guidance.</p>
+        <div style="margin-top:10px;font-weight:600;color:var(--primary);">
+          ₹8,000 - ₹15,000 per person<br>
+          <small style="color:#fff;font-weight:400;">Includes accommodation & sessions</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div style="max-width:1100px;margin:auto;text-align:left;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;">
+    <div>
+      <h3>Ghumo Duniya</h3>
+      <p>Your trusted travel partner for unforgettable adventures across India and beyond.</p>
+    </div>
+    <div>
+      <h4>Contact Us</h4>
+      <p>📞 +91 9598940618</p>
+      <p>📧 ghumoduniya@gmail.com</p>
+      <a href="https://www.instagram.com/_ghumo_duniya" target="_blank">Follow us on Instagram</a>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <p>Custom Trips<br>Local Guides<br>Comfort Stays<br>Group Tours<br>Adventure Experiences</p>
+    </div>
+  </div>
+  <p style="margin-top:20px;border-top:1px solid var(--muted);padding-top:20px;">© 2025 Ghumo Duniya. All rights reserved.</p>
+</footer>
+
+<script>
+function sendMail(e){
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const phone = document.getElementById("phone").value;
+  const trip = document.getElementById("trip").value;
+  const message = document.getElementById("message").value;
+
+  const subject = encodeURIComponent("Trip Enquiry");
+  const body = encodeURIComponent(
+    "Name: "+name+
+    "\nPhone: "+phone+
+    "\nEmail: "+email+
+    "\nTrip: "+trip+
+    "\n\nMessage:\n"+message
+  );
+
+  window.location.href =
+    "mailto:ghumoduniya@gmail.com?subject="+subject+"&body="+body;
+}
+
+// Mobile Menu Toggle
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", function() {
+  menuToggle.classList.toggle("active");
+  navLinks.classList.toggle("active");
+});
+
+// Close menu when a link is clicked
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", function() {
+    menuToggle.classList.remove("active");
+    navLinks.classList.remove("active");
+  });
+});
+
+// Close menu when clicking outside
+document.addEventListener("click", function(e) {
+  if (!e.target.closest("nav")) {
+    menuToggle.classList.remove("active");
+    navLinks.classList.remove("active");
+  }
+});
+</script>
+
+</body>
+</html>
+

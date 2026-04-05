@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Taj Mahal Background</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+    
+    :root {
+      --primary: #00c3ff;
+      --dark: #071023;
+      --muted: #9aa4b2;
+      --card: rgba(255,255,255,0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { margin: 0; background: var(--dark); color: #fff; }
+    a { color: var(--primary); text-decoration: none; }
+    header { position: fixed; top: 0; left: 0; right: 0; background: rgba(0,0,0,0.92); backdrop-filter: blur(8px); z-index: 100; }
+    nav { max-width: 1100px; margin: auto; padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; }
+    .logo { width: 52px; height: 52px; border-radius: 12px; object-fit: cover; }
+    .nav-links { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .nav-links a { font-weight: 600; }
+    .hero { height: 100vh; background: url('https://images.unsplash.com/photo-1564507592333-c60657eea523') no-repeat center center/cover; position: relative; display: flex; justify-content: center; align-items: center; }
+    .hero::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); }
+    .hero-content { position: relative; color: white; text-align: center; z-index: 1; }
+    .hero-title { font-size: 3rem; margin-bottom: 10px; }\n\n    .hero-text { font-size: 1.2rem; }\n    .hero-cta { margin-top: 24px; display: inline-flex; align-items: center; gap: 12px; background: linear-gradient(135deg, var(--primary) 0%, #00a8d8 100%); color: #001227; padding: 14px 28px; border-radius: 12px; font-weight: 700; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,195,255,0.3); }\n    .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,195,255,0.4); }\n    .hero-cta::before { content: '✈️ '; margin-right: 4px; }
+    .section { padding: 80px 20px; max-width: 1100px; margin: auto; position: relative; min-height: 100vh; }
+    .section:nth-child(3) { background: linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.65) 100%), url('tajmahal.jpg') center/cover no-repeat scroll; color: #fff; }
+    .section:nth-child(4) { background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,195,255,0.1) 100%), url('agrafort.jpg') center/cover no-repeat scroll; color: #fff; }
+    .section:nth-child(5) { background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.6) 100%), url('fatehpursikri.jpg') center/cover no-repeat scroll; color: #fff; }
+    .section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 20% 80%, rgba(0,195,255,0.03) 0%, transparent 50%); pointer-events: none; }
+    .section h2 { font-family: Playfair Display, serif; font-size: 34px; margin-bottom: 20px; position: relative; padding-bottom: 16px; text-shadow: 2px 2px 8px rgba(0,0,0,0.5); z-index: 2; }
+    .section h2::after { content: ''; position: absolute; bottom: 0; left: 0; width: 80px; height: 3px; background: linear-gradient(90deg, var(--primary), transparent); border-radius: 2px; z-index: 2; }
+    .section p { font-size: 16px; line-height: 1.75; color: #d9dee6; position: relative; z-index: 2; text-shadow: 1px 1px 3px rgba(0,0,0,0.3); }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; position: relative; z-index: 2; }
+    .cards::before { content: '🕌'; position: absolute; left: -40px; font-size: 100px; opacity: 0.08; margin-top: -20px; }
+    .card { background: linear-gradient(135deg, rgba(0,195,255,0.1) 0%, rgba(255,255,255,0.05) 100%); border: 1px solid rgba(0,195,255,0.2); border-radius: 18px; padding: 28px; min-height: 220px; display: flex; flex-direction: column; gap: 16px; transition: all 0.3s ease; }
+    .card:hover { transform: translateY(-8px); border-color: rgba(0,195,255,0.4); background: linear-gradient(135deg, rgba(0,195,255,0.15) 0%, rgba(255,255,255,0.08) 100%); box-shadow: 0 20px 40px rgba(0,195,255,0.1); }
+    .card h3 { margin: 0; color: var(--primary); font-size: 20px; font-weight: 700; letter-spacing: 0.5px; }
+    .card h3::before { content: '✨ '; margin-right: 6px; }
+    .card p { margin: 0; color: #e5e9f0; }
+    .itinerary { display: grid; gap: 24px; margin-top: 30px; position: relative; }
+    .itinerary::before { content: ''; position: absolute; top: -80px; right: 0; width: 300px; height: 200px; background: url('https://images.unsplash.com/photo-1569163139394-de4798aa62b9?auto=format&fit=crop&w=400&q=80') center/cover no-repeat; border-radius: 12px; opacity: 0.15; z-index: 0; }
+    .itinerary::after { content: ''; position: absolute; bottom: 0; left: -50px; width: 280px; height: 180px; background: url('https://images.unsplash.com/photo-1564777287642-430ea64d4e97?auto=format&fit=crop&w=400&q=80') center/cover no-repeat; border-radius: 12px; opacity: 0.12; z-index: 0; }
+    .day-block { background: linear-gradient(90deg, rgba(0,195,255,0.08) 0%, rgba(255,255,255,0.03) 100%); border-radius: 16px; padding: 24px; border-left: 4px solid var(--primary); transition: all 0.3s ease; position: relative; z-index: 1; }
+    .day-block::before { content: ''; position: absolute; right: -60px; top: -30px; width: 200px; height: 150px; background: url('https://images.unsplash.com/photo-1552520514-da3de642d32b?auto=format&fit=crop&w=300&q=80') center/cover no-repeat; border-radius: 8px; opacity: 0.1; }
+    .day-block:hover { background: linear-gradient(90deg, rgba(0,195,255,0.12) 0%, rgba(255,255,255,0.05) 100%); }
+    .day-block h3 { margin: 0 0 12px; color: #fff; font-size: 20px; font-weight: 700; display: flex; align-items: center; }
+    .day-block h3::before { content: '📍'; margin-right: 10px; font-size: 22px; }
+    .day-block p { margin: 8px 0; color: #d9dee6; line-height: 1.7; }
+    .note { margin-top: 20px; padding: 18px 22px; background: linear-gradient(135deg, rgba(0,195,255,0.12) 0%, rgba(0,195,255,0.05) 100%); border-left: 4px solid var(--primary); border-radius: 12px; border-top: 1px solid rgba(0,195,255,0.2); }
+    .note::before { content: '💡 '; margin-right: 8px; }
+    .note strong { color: var(--primary); font-weight: 700; }
+    .contact-card { margin-top: 24px; padding: 26px; border-radius: 18px; background: linear-gradient(135deg, rgba(0,195,255,0.1) 0%, rgba(255,255,255,0.05) 100%); border: 1px solid rgba(0,195,255,0.3); box-shadow: 0 8px 32px rgba(0,195,255,0.1); position: relative; z-index: 2; }
+    .contact-card h3 { margin: 0 0 16px; color: var(--primary); font-size: 24px; font-weight: 700; }
+    .contact-card h3::before { content: '📞 '; margin-right: 10px; }
+    .contact-card p { margin: 10px 0; color: #e5e9f0; line-height: 1.75; display: flex; align-items: center; }
+    .contact-card p strong { color: var(--primary); min-width: 100px; }
+    .contact-card a { display: inline-block; color: #001227; background: var(--primary); padding: 10px 18px; border-radius: 10px; margin-top: 14px; font-weight: 700; }
+    @media (max-width: 800px) { .hero { min-height: 50vh; } .nav-links { gap: 10px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="brand" style="display:flex;align-items:center;gap:12px;">
+        <img src="ghumo duniya img.jpeg" alt="Ghumo Duniya" class="logo">
+        <div>
+          <strong style="font-size:18px;">Ghumo Duniya</strong><br>
+          <small style="color:#9aa4b2;">Tours & Travels</small>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="2.html">Home</a>
+        <a href="2.html#pricing">Pricing</a>
+        <a href="custom-package.html">Custom Package</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+    
+      <h1 class="hero-title">Welcome to My Website</h1>
+      <p class="hero-text">Experience the beauty of the Taj Mahal</p>
+    </div>
+  </section>
+
+  <section class="section">
+    
+   
+    </style>
+    <h2>Brief Agra Travel Overview</h2>
+    <p>Agra is home to the world-renowned Taj Mahal and stands as a testament to India's architectural brilliance. Your trip includes the iconic monument, Agra Fort, local markets, and the best travel comfort with Ghumo Duniya's expert planning.</p>
+    <div class="cards">
+      <div class="card">
+        <h3>Taj Mahal Wonder</h3>
+        <p>Witness the ethereal beauty of the Taj Mahal with sunrise and sunset visits, guided tours, and photography moments.</p>
+      </div>
+      <div class="card">
+        <h3>Mughal Heritage</h3>
+        <p>Explore Agra Fort, Itimad-ud-Daulah, and local bazaars to feel the richness of Mughal history and culture.</p>
+      </div>
+      <div class="card">
+        <h3>Comfort & Convenience</h3>
+        <p>Stay in well-located hotels, enjoy comfortable transfers, and travel with professionally guided heritage tours.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <h2>Suggested Agra Itinerary</h2>
+    <div class="itinerary">
+      <div class="day-block">
+        <h3>Day 1: Arrival in Agra</h3>
+        <p>Arrive in Agra, transfer to your hotel, and enjoy an evening at the Taj Mahal with sunset views and guided orientation.</p>
+      </div>
+      <div class="day-block">
+        <h3>Day 2: Taj Mahal & Agra Heritage</h3>
+        <p>Start with sunrise at the Taj Mahal, then explore Agra Fort, Itimad-ud-Daulah, and local markets with expert guides.</p>
+      </div>
+      <div class="day-block">
+        <h3>Day 3: Relaxation & Departure</h3>
+        <p>Enjoy a leisurely breakfast, optional local market walk, and smooth airport transfer or connection to your next destination.</p>
+      </div>
+    </div>
+    <div class="note">
+      <strong>Note:</strong> This is a flexible itinerary. Ghumo Duniya can extend it with Mathura-Vrindavan excursions, luxury heritage stays, or Delhi combination tours.
+    </div>
+
+    <section class="section">
+      <div class="contact-card">
+        <h3>Contact Ghumo Duniya</h3>
+        <p>Ready to book your Taj Mahal tour or want a custom Agra itinerary? Reach out and our travel experts will help you plan a perfect heritage journey.</p>
+        <p><strong>Phone:</strong> +91 95989 40618</p>
+        <p><strong>Email:</strong> <a href="mailto:ghumoduniya@gmail.com">ghumoduniya@gmail.com</a></p>
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/919598940618" target="_blank">Chat with us on WhatsApp</a></p>
+      </div>
+    </section>
+  </section>
+</body>
+</html>
